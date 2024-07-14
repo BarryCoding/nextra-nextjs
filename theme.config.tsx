@@ -41,15 +41,15 @@ const config: DocsThemeConfig = {
   // 浏览器 标题SEO
   useNextSeoProps,
 
-  // 主导航栏 logo
+  // 导航栏 logo
   logo,
 
-  // 左侧 导航栏 开启 可折叠
+  // 侧边栏左 开启 可折叠
   sidebar: {
     toggleButton: true,
   },
 
-  // 右侧 导航栏 去除 反馈和编辑链接
+  // 侧边栏右 去除 反馈和编辑链接
   feedback: { content: null },
   editLink: { component: null },
 

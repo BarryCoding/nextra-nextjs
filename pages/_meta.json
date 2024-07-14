@@ -2,10 +2,7 @@
   "index": {
     "type": "page",
     "title": "Nextra",
-    "display": "hidden",
-    "theme": {
-      "layout": "raw"
-    }
+    "display": "hidden"
   },
   "nextra": {
     "type": "page",
@@ -13,7 +10,7 @@
   },
   "next-page": {
     "type": "page",
-    "title": "Page Router"
+    "title": "Next.js Page Router"
   },
   "404": {
     "type": "page",

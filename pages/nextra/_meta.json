@@ -1,12 +1,8 @@
 {
   "index": "Introduction",
   "guide": "",
-  "-- Themes": {
-    "type": "separator",
-    "title": "Themes"
-  },
-  "docs-theme": "",
-  "blog-theme": "",
+  "build-ins": "Build Ins",
+  "docs-theme": "Theme",
   "-- More": {
     "type": "separator",
     "title": "More"
@@ -18,7 +14,7 @@
   },
   "next.js-link": {
     "title": "Next.js Docs ↗",
-    "href": "https://nextjs.org?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar",
+    "href": "https://nextjs.org/docs",
     "newWindow": true
   }
 }

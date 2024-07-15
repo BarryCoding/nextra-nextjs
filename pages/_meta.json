@@ -4,13 +4,28 @@
     "title": "Nextra",
     "display": "hidden"
   },
+  "next-page": {
+    "type": "page",
+    "title": "Next.js",
+    "display": "hidden"
+  },
   "nextra": {
     "type": "page",
     "title": "Nextra"
   },
-  "next-page": {
-    "type": "page",
-    "title": "Next.js Page Router"
+  "nextjs": {
+    "title": "Next.js",
+    "type": "menu",
+    "items": {
+      "pages": {
+        "title": "Page Router",
+        "href": "/next-page"
+      },
+      "pages-cn": {
+        "title": "Page 路由(待翻译)",
+        "href": "/next-page-cn"
+      }
+    }
   },
   "404": {
     "type": "page",

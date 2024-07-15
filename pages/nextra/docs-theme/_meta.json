@@ -1,0 +1,11 @@
+{
+  "page-configuration": "Page Meta Config",
+  "theme-configuration": "Site Theme Config",
+  "bleed": {
+    "title": "Built In <Bleed>",
+    "theme": {
+      "toc": false
+    }
+  },
+  "use-config": "API useConfig"
+}

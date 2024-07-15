@@ -1,14 +1,21 @@
 {
   "index": "Introduction",
   "guide": "",
-  "build-ins": "Build Ins",
+  "build-ins": {
+    "title": "Built Ins",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false
+    }
+  },
   "docs-theme": "Theme",
   "-- More": {
     "type": "separator",
     "title": "More"
   },
   "about-link": {
-    "title": "About Nextra",
+    "title": "About Nextra ↗",
     "href": "https://nextra.site",
     "newWindow": true
   },

@@ -1,0 +1,125 @@
+import { BoxIcon, GearIcon, RowsIcon } from '@/components/icons'
+import { Callout, Card, Cards, Steps } from 'nextra/components'
+
+# Docs Theme
+
+Nextra Docs Theme is a theme that includes almost everything you need to build a
+modern documentation website. It includes a top navigation bar, a search bar, a
+pages sidebar, a TOC sidebar, and other built-in components.
+
+This website itself is built with the Nextra Docs Theme.
+
+## Quick Start from Template
+
+## Start as New Project
+
+<Steps>
+### Install
+
+To create a Nextra Docs site manually, you have to install **Next.js**,
+**React**, **Nextra**, and **Nextra Docs Theme**. In your project directory, run
+the following command to install the dependencies:
+
+```sh npm2yarn
+npm i next react react-dom nextra nextra-theme-docs
+```
+
+<Callout>
+  If you already have Next.js installed in your project, you only need to install `nextra` and `nextra-theme-docs` as
+  the add-ons.
+</Callout>
+
+Add the following scripts in `package.json`:
+
+```json filename="package.json"
+"scripts": {
+  "dev": "next",
+  "build": "next build",
+  "start": "next start"
+},
+```
+
+You can either start the server with, for example if you use npm, `npm run dev`,
+which will run in development mode or `npm run build && npm run start` for
+production mode.
+
+<Callout>
+  If you're not familiar with Next.js, note that development mode is significantly slower since Next.js compiles every
+  page you navigate to.
+</Callout>
+
+### Add Next.js Config
+
+Create the following `next.config.mjs` file in your project’s root directory:
+
+```js filename="next.config.mjs"
+import createNextra from 'nextra'
+
+const withNextra = createNextra({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx',
+})
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  webpack(config) {
+    const allowedSvgRegex = /components\/icons\/.+\.svg$/
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'))
+    fileLoaderRule.exclude = allowedSvgRegex
+    config.module.rules.push({
+      test: allowedSvgRegex,
+      use: ['@svgr/webpack'],
+    })
+    return config
+  },
+}
+
+export default withNextra(nextConfig)
+```
+
+With the above configuration, Nextra can handle Markdown files in your Next.js
+project, with the specified theme. Other Nextra configurations can be found in
+[Guide](/nextra/guide).
+
+### Create Docs Theme Config
+
+Lastly, create the corresponding `theme.config.jsx` file in your project’s root
+directory. This will be used to configure the Nextra Docs theme:
+
+```jsx filename="theme.config.jsx"
+export default {
+  logo: <span>My Nextra Documentation</span>,
+  project: {
+    link: 'https://github.com/shuding/nextra',
+  },
+  // ... other theme options
+}
+```
+
+Full theme configurations can be found
+[here](/nextra/docs-theme/theme-configuration).
+
+### Ready to Go!
+
+Now, you can create your first MDX page as `pages/index.mdx`:
+
+```mdx filename="pages/index.mdx"
+# Welcome to Nextra
+
+Hello, world!
+```
+
+And run the `next` or `next dev` command specified in `package.json`to start
+developing the project! 🎉
+
+</Steps>
+
+Next, check out the next section to learn about organizing the documentation
+structure and configuring the website theme:
+
+<Cards>
+  <Card icon={<RowsIcon />} title='Page Configuration' href='/nextra/docs-theme/page-configuration' />
+  <Card icon={<GearIcon />} title='Theme Configuration' href='/nextra/docs-theme/theme-configuration' />
+  <Card icon={<BoxIcon />} title='Built-in Components' href='/nextra/docs-theme/built-ins' />
+</Cards>

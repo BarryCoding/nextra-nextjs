@@ -7,6 +7,7 @@ const withNextra = createNextra({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: 'build',
   reactStrictMode: true,
 
   // webpack 配置

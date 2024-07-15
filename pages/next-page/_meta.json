@@ -1,3 +1,13 @@
 {
-  "index": "Introduction"
+  "getting-started": "",
+  "building-your-application": "",
+  "-- More": {
+    "type": "separator",
+    "title": "Seeking Truth"
+  },
+  "next.js-link": {
+    "title": "Next.js Docs ↗",
+    "href": "https://nextjs.org/docs",
+    "newWindow": true
+  }
 }

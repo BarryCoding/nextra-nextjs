@@ -7,7 +7,10 @@
   "next-page": {
     "type": "page",
     "title": "Next.js",
-    "display": "hidden"
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false
+    }
   },
   "nextra": {
     "type": "page",
@@ -19,7 +22,7 @@
     "items": {
       "pages": {
         "title": "Page Router",
-        "href": "/next-page"
+        "href": "/next-page/getting-started"
       },
       "pages-cn": {
         "title": "Page 路由(待翻译)",

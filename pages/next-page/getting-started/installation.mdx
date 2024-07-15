@@ -1,0 +1,140 @@
+---
+title: Installation
+---
+
+> Create a new Next.js application with `create-next-app`.
+
+System Requirements: [Node.js 18.17 ↗] or later.
+
+## Automatic Installation
+
+We recommend starting a new Next.js app using [`create-next-app`],  
+which sets up everything automatically for you.
+
+To create a project, run:
+
+```bash filename="Terminal"
+pnpx create-next-app@latest
+```
+
+On installation, you'll see the following prompts:
+
+What is your project named? **your-app-name**  
+Would you like to use TypeScript? No / **Yes**  
+Would you like to use ESLint? No / **Yes**  
+Would you like to use Tailwind CSS? No / **Yes**  
+Would you like your code inside a `src/` directory? No / **Yes**  
+Would you like to use App Router? (recommended) No / **Yes**  
+Would you like to customize the import alias (`@/*` by default)? **No** / Yes
+
+After the prompts, [`create-next-app`] will create a folder with your project name  
+and install the required dependencies.
+
+If you're new to Next.js, see the [project structure] docs  
+for an overview of all the possible files and folders in your application.
+
+> **Good to know**:  
+> Next.js now ships with [TypeScript], [ESLint], and [Tailwind CSS] configuration by default.  
+> You can optionally use a [src directory] in the root of your project to  
+> separate **your application's** code from **configuration** files.
+
+## Runing Scripts
+
+Open your `package.json` file and add the following `scripts`:
+
+```json filename="package.json"
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "preview": "next build && next start --port 3456"
+  }
+}
+```
+
+These scripts refer to the different stages of developing an application:
+
+- `dev`: runs [`next dev`][next cli] to start Next.js in development mode.
+- `build`: runs [`next build`][next cli] to build the application for production usage.
+- `start`: runs [`next start`][next cli] to start a Next.js production server.
+- `lint`: runs [`next lint`][next cli] to set up Next.js' built-in ESLint configuration.
+- `preview` runs `next build && next start --port 3456` to run production app at port 3456.
+
+## Creating directories
+
+Next.js uses file-system routing, which means the routes in your application are determined by  
+how you structure your files.
+
+### The `pages` directory
+
+You can create a `pages/` directory at the root of your project.  
+Then, add an `index.tsx` file inside your `pages` folder. This will be your home page (`/`):
+
+```tsx filename="pages/index.tsx" switcher
+export default function Page() {
+  return <h1>Hello, Next.js!</h1>
+}
+```
+
+Next, add an `_app.tsx` file inside `pages/` to define the **global layout**.  
+Learn more about the [custom App file].
+
+```tsx filename="pages/_app.tsx"
+import type { AppProps } from 'next/app'
+
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+```
+
+Finally, add a `_document.tsx` file inside `pages/` to control the initial response from the server.  
+Learn more about the [custom Document file].
+
+```tsx filename="pages/_document.tsx"
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html>
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+```
+
+> **Good to know**:  
+> Although you can use both routers in the same project,  
+> routes in `app` will be **prioritized** over `pages`.  
+> We recommend **using only one router** in your new project to avoid confusion.
+
+### The `public` folder
+
+Create a `public` folder to store static assets such as images, fonts, etc.  
+Files inside `public` directory can then be referenced by your code starting from  
+the baseURL (`/`) or the import alias (`@/public/`).
+
+## Run the Development Server
+
+1. Run `npm run dev` to start the development server (default port at 3000).
+2. Visit `http://localhost:3000` to view your application.
+3. Edit `pages/index.tsx` file and save it to see the updated result in your browser.
+
+{/* links reference */}
+
+[project structure]: /next-page/getting-started/project-structure
+[`create-next-app`]: /next-page/api-reference/create-next-app
+[TypeScript]: /next-page/building-your-application/configuring/typescript
+[ESLint]: /next-page/building-your-application/configuring/eslint
+[Tailwind CSS]: /next-page/building-your-application/styling/tailwind-css
+[src directory]: /next-page/building-your-application/configuring/src-directory
+[next cli]: /next-page/api-reference/next-cli
+[custom App file]: /next-page/building-your-application/routing/custom-app
+[custom Document file]: /next-page/building-your-application/routing/custom-document
+[Pages Router]: /next-page/building-your-application/routing/pages-and-layouts
+[Node.js 18.17 ↗]: https://nodejs.org/

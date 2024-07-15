@@ -1,0 +1,20 @@
+{
+  "fundamental": {
+    "type": "separator",
+    "title": "Fundamental"
+  },
+  "routing": "",
+  "rendering": "",
+  "data-fetching": "",
+  "styling": "",
+  "advanced": {
+    "type": "separator",
+    "title": "Advanced"
+  },
+  "configuring": "",
+  "authentication": "",
+  "testing": "",
+  "optimizing": "",
+  "deploying": "",
+  "upgrading": ""
+}

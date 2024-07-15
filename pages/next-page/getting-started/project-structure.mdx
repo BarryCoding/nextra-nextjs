@@ -1,0 +1,84 @@
+---
+title: Project Structure
+---
+
+import { ThemeImage } from '@/components/ThemeImage'
+
+> A list of folders and files conventions in a Next.js project
+
+This page provides an overview of the project structure of a Next.js application.  
+It covers top-level files and folders, configuration files,  
+and routing conventions within the `app` and `pages` directories.
+
+## Top-level folders
+
+Top-level folders are used to organize your application's code and static assets.
+
+<ThemeImage
+  alt='Route segments to path segments'
+  srcLight='/next/light/top-level-folders.avif'
+  srcDark='/next/dark/top-level-folders.avif'
+  width='1600'
+  height='525'
+/>
+
+| Folder Name                                                               | Description                        |
+| :------------------------------------------------------------------------ | :--------------------------------- |
+| [`pages`](/next-page/building-your-application/routing)                   | Pages Router                       |
+| [`public`](/next-page/building-your-application/optimizing/static-assets) | Static assets to be served         |
+| [`src`](/next-page/building-your-application/configuring/src-directory)   | Optional application source folder |
+
+## Top-level files
+
+Top-level files are used to configure your application,  
+manage dependencies, run middleware, integrate monitoring tools,  
+and define environment variables.
+
+| File Name                                                                                    | Description                             |
+| :------------------------------------------------------------------------------------------- | :-------------------------------------- |
+| [`.env`](/next-page/building-your-application/configuring/environment-variables)             | Environment variables                   |
+| [`.env.local`](/next-page/building-your-application/configuring/environment-variables)       | Local environment variables             |
+| [`.env.production`](/next-page/building-your-application/configuring/environment-variables)  | Production environment variables        |
+| [`.env.development`](/next-page/building-your-application/configuring/environment-variables) | Development environment variables       |
+| `.gitignore`                                                                                 | Git files and folders to ignore         |
+| [`package.json`](/next-page/getting-started/installation#runing-scripts)                     | Project dependencies and scripts        |
+| [`.eslintrc.json`](/next-page/building-your-application/configuring/eslint)                  | Configuration file for ESLint           |
+| `tsconfig.json`                                                                              | Configuration file for TypeScript       |
+| [`next.config.mjs`](/next-page/api-reference/next-config-js)                                 | Configuration file for Next.js          |
+| `next-env.d.ts`                                                                              | TypeScript declaration file for Next.js |
+| [`middleware.ts`](/next-page/building-your-application/routing/middleware)                   | Next.js request middleware              |
+
+## Pages Router Conventions
+
+### Special Files
+
+| File Name                                                                   |        | Description        |
+| :-------------------------------------------------------------------------- | :----- | :----------------- |
+| [`_app`](/next-page/building-your-application/routing/custom-app)           | `.tsx` | Custom App         |
+| [`_document`](/next-page/building-your-application/routing/custom-document) | `.tsx` | Custom Document    |
+| [`_error`](/next-page/building-your-application/routing/custom-error)       | `.tsx` | Custom Error Page  |
+| [`404` `500`](/next-page/building-your-application/routing/custom-error)    | `.tsx` | 404 500 Error Page |
+
+### Static Routes
+
+| Conversion                                                                                    |        | page        |
+| :-------------------------------------------------------------------------------------------- | :----- | :---------- |
+| **Folder convention**                                                                         |        |             |
+| [`index`](/next-page/building-your-application/routing/pages-and-layouts#index-routes)        | `.tsx` | Home page   |
+| [`folder/index`](/next-page/building-your-application/routing/pages-and-layouts#index-routes) | `.tsx` | Nested page |
+| **File convention**                                                                           |        |             |
+| [`index`](/next-page/building-your-application/routing/pages-and-layouts#index-routes)        | `.tsx` | Home page   |
+| [`file`](/next-page/building-your-application/routing/pages-and-layouts)                      | `.tsx` | Nested page |
+
+### Dynamic Routes
+
+| Conversion                                                                                                       |        | route segment                    |
+| :--------------------------------------------------------------------------------------------------------------- | :----- | :------------------------------- |
+| **Folder convention**                                                                                            |        |                                  |
+| [`[folder]/index`](/next-page/building-your-application/routing/dynamic-routes)                                  | `.tsx` | Dynamic route segment            |
+| [`[...folder]/index`](/next-page/building-your-application/routing/dynamic-routes#catch-all-segments)            | `.tsx` | Catch-all route segment          |
+| [`[[...folder]]/index`](/next-page/building-your-application/routing/dynamic-routes#optional-catch-all-segments) | `.tsx` | Optional catch-all route segment |
+| **File convention**                                                                                              |        |                                  |
+| [`[file]`](/next-page/building-your-application/routing/dynamic-routes)                                          | `.tsx` | Dynamic route segment            |
+| [`[...file]`](/next-page/building-your-application/routing/dynamic-routes#catch-all-segments)                    | `.tsx` | Catch-all route segment          |
+| [`[[...file]]`](/next-page/building-your-application/routing/dynamic-routes#optional-catch-all-segments)         | `.tsx` | Optional catch-all route segment |

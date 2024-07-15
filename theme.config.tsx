@@ -35,8 +35,14 @@ const useNextSeoProps = () => {
 
 const config: DocsThemeConfig = {
   // 主色调
-  primaryHue: 215,
-  primarySaturation: 75,
+  primaryHue: {
+    dark: 188,
+    light: 210,
+  },
+  primarySaturation: {
+    dark: 100,
+    light: 100,
+  },
 
   // 浏览器 标题SEO
   useNextSeoProps,

@@ -1,15 +1,11 @@
 {
-  "fundamental": {
-    "type": "separator",
-    "title": "Fundamental"
-  },
   "routing": "",
   "rendering": "",
   "data-fetching": "",
   "styling": "",
   "advanced": {
     "type": "separator",
-    "title": "Advanced"
+    "title": "Advanced Topics"
   },
   "configuring": "",
   "authentication": "",

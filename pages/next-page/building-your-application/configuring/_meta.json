@@ -1,0 +1,25 @@
+{
+  "typescript": "",
+  "eslint": "",
+  "environment-variables": "",
+  "absolute-imports-and-module-aliases": "",
+  "src-directory": "",
+  "mdx": "",
+  "babel": "",
+  "post-css": "",
+  "error-handling": "",
+  "debugging": "",
+  "draft-mode": {
+    "title": "Draft Mode",
+    "des": "superset of preview-mode"
+  },
+  "preview-mode": {
+    "title": "ignored topics",
+    "display": "hidden"
+  },
+  "custom-server": {
+    "title": "ignored topics",
+    "display": "hidden"
+  },
+  "content-security-policy": ""
+}

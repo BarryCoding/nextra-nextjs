@@ -1,0 +1,34 @@
+---
+title: src Directory
+---
+
+> Save pages under the `src` directory as an alternative to the root `pages` directory.
+
+As an alternative to having the special Next.js `pages` directories in the root of your project,  
+Next.js also supports the common pattern of placing application code under the `src` directory.
+
+This separates application code from project configuration files which mostly live in the root of a project.
+
+To use the `src` directory, move the `pages` Router folder to `src/pages` respectively.
+
+import { ThemeImage } from '@/components/ThemeImage'
+
+<ThemeImage
+  alt='An example folder structure with the `src` directory'
+  srcLight='/next/light/project-organization-src-directory.avif'
+  srcDark='/next/dark/project-organization-src-directory.avif'
+  width='1600'
+  height='687'
+/>
+
+> - in project root:
+>   - `.env.*` files
+>   - Config files like `package.json`, `next.config.js`, `tailwind.config.js` and `tsconfig.json`.
+>   - The `/public` directory.
+> - in src folder
+>   - `/components` or `/lib`.
+>   - **middleware.ts**
+> - extra configuration
+>   - add the `/src` prefix to the `tailwind.config.js` file in the [content section](https://tailwindcss.com/docs/content-configuration).
+>   - update the `paths` object in `tsconfig.json` to include `src/` for import alias.
+> - `src/app` or `src/pages` will be ignored if `app` or `pages` are present in the root directory.

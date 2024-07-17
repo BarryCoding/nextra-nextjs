@@ -114,17 +114,9 @@ So your page **paths** that are pre-rendered depend on external data.
 To handle this, Next.js lets you `export` an `async` function called `getStaticPaths` from a dynamic page (`pages/posts/[id].js` in this case).  
 This function gets called at build time and lets you specify which paths you want to pre-render.
 
-```jsx
-
-```
-
 Also in `pages/posts/[id].js`, you need to export `getStaticProps` so that you can fetch the data about the post with this `id` and use it to pre-render the page:
 
 ```jsx
-export default function Post({ post }) {
-  // Render post...
-}
-
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -150,6 +142,10 @@ export async function getStaticProps({ params }) {
 
   // Pass post data to the page via props
   return { props: { post } }
+}
+
+export default function Post({ post }) {
+  // Render post...
 }
 ```
 

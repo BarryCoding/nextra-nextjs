@@ -1,0 +1,218 @@
+---
+title: Codemods
+---
+
+> Use codemods to upgrade your Next.js codebase when new features are released.
+
+Codemods are transformations that run on your codebase programmatically.  
+This allows a large number of changes to be programmatically applied  
+without having to manually go through every file.
+
+Next.js provides Codemod transformations to help upgrade your Next.js codebase  
+when an API is updated or deprecated.
+
+## Usage
+
+In your terminal, navigate (`cd`) into your project's folder, then run:
+
+```bash filename="Terminal"
+npx @next/codemod <transform> <path>
+```
+
+Replacing `<transform>` and `<path>` with appropriate values.
+
+- `transform` - name of transform
+- `path` - files or directory to transform
+- `--dry` Do a dry-run, no code will be edited
+- `--print` Prints the changed output for comparison
+
+## 14.0
+
+### Migrate `ImageResponse`
+
+#### `next-og-import`
+
+```bash filename="Terminal"
+npx @next/codemod@latest next-og-import .
+```
+
+This codemod moves transforms imports from `next/server` to `next/og` for usage of [Dynamic OG Image Generation](/docs/app/building-your-application/optimizing/metadata#dynamic-image-generation).
+
+For example:
+
+```js
+import { ImageResponse } from 'next/server'
+```
+
+Transforms into:
+
+```js
+import { ImageResponse } from 'next/og'
+```
+
+### `viewport` export
+
+#### `metadata-to-viewport-export`
+
+```bash filename="Terminal"
+npx @next/codemod@latest metadata-to-viewport-export .
+```
+
+This codemod migrates certain viewport metadata to `viewport` export.
+
+For example:
+
+```js
+export const metadata = {
+  title: 'My App',
+  themeColor: 'dark',
+  viewport: {
+    width: 1,
+  },
+}
+```
+
+Transforms into:
+
+```js
+export const metadata = {
+  title: 'My App',
+}
+
+export const viewport = {
+  width: 1,
+  themeColor: 'dark',
+}
+```
+
+## 13.2
+
+### Built-in Font
+
+#### `built-in-next-font`
+
+```bash filename="Terminal"
+npx @next/codemod@latest built-in-next-font .
+```
+
+This codemod uninstalls the `@next/font` package and transforms `@next/font` imports into the built-in `next/font`.
+
+For example:
+
+```js
+import { Inter } from '@next/font/google'
+```
+
+Transforms into:
+
+```js
+import { Inter } from 'next/font/google'
+```
+
+## 13.0
+
+### Rename Image Imports
+
+#### `next-image-to-legacy-image`
+
+```bash filename="Terminal"
+npx @next/codemod@latest next-image-to-legacy-image .
+```
+
+Safely renames `next/image` imports in existing Next.js 10, 11, or 12 applications  
+to `next/legacy/image` in Next.js 13. Also renames `next/future/image` to `next/image`.
+
+For example:
+
+```jsx filename="pages/index.js"
+import Image1 from 'next/image'
+import Image2 from 'next/future/image'
+
+export default function Home() {
+  return (
+    <div>
+      <Image1 src='/test.jpg' width='200' height='300' />
+      <Image2 src='/test.png' width='500' height='400' />
+    </div>
+  )
+}
+```
+
+Transforms into:
+
+```jsx filename="pages/index.js"
+// 'next/image' becomes 'next/legacy/image'
+import Image1 from 'next/legacy/image'
+// 'next/future/image' becomes 'next/image'
+import Image2 from 'next/image'
+
+export default function Home() {
+  return (
+    <div>
+      <Image1 src='/test.jpg' width='200' height='300' />
+      <Image2 src='/test.png' width='500' height='400' />
+    </div>
+  )
+}
+```
+
+### New Image Component
+
+#### `next-image-experimental`
+
+```bash filename="Terminal"
+npx @next/codemod@latest next-image-experimental .
+```
+
+Dangerously migrates from `next/legacy/image` to the new `next/image` by adding inline styles and removing unused props.
+
+- Removes `layout` prop and adds `style`.
+- Removes `objectFit` prop and adds `style`.
+- Removes `objectPosition` prop and adds `style`.
+- Removes `lazyBoundary` prop.
+- Removes `lazyRoot` prop.
+
+### Remove `<a>` From Link
+
+#### `new-link`
+
+```bash filename="Terminal"
+npx @next/codemod@latest new-link .
+```
+
+Remove `<a>` tags inside [Link Components](/docs/pages/api-reference/components/link), or add a `legacyBehavior` prop to Links that cannot be auto-fixed.
+
+For example:
+
+```jsx
+<Link href="/about">
+  <a>About</a>
+</Link>
+// transforms into
+<Link href="/about">
+  About
+</Link>
+
+<Link href="/about">
+  <a onClick={() => console.log('clicked')}>About</a>
+</Link>
+// transforms into
+<Link href="/about" onClick={() => console.log('clicked')}>
+  About
+</Link>
+```
+
+In cases where auto-fixing can't be applied, the `legacyBehavior` prop is added.  
+This allows your app to keep functioning using the old behavior for that particular link.
+
+```jsx
+const Component = () => <a>About</a>
+
+<Link href="/about">
+  <Component />
+</Link>
+// becomes
+<Link href="/about" legacyBehavior>
+  <Component />
+</Link>
+```

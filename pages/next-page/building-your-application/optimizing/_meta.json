@@ -1,0 +1,18 @@
+{
+  "images": "",
+  "fonts": "",
+  "scripts": "",
+  "static-assets": "",
+  "lazy-loading": "",
+  "instrumentation": {
+    "title": "ignored topics",
+    "display": "hidden"
+  },
+  "open-telemetry": {
+    "title": "ignored topics",
+    "display": "hidden"
+  },
+  "third-party-libraries": "",
+  "analytics": "",
+  "package-bundling": ""
+}

@@ -3,10 +3,10 @@
   "building-your-application": "",
   "-- More": {
     "type": "separator",
-    "title": "Official Reference"
+    "title": "Official Documentation"
   },
   "next.js-link": {
-    "title": "Official Next.js Docs ↗",
+    "title": "Next.js Docs ↗",
     "href": "https://nextjs.org/docs",
     "newWindow": true
   }

@@ -1,0 +1,14 @@
+{
+  "api-reference": "",
+  "architecture": "",
+  "community": "",
+  "-- More": {
+    "type": "separator",
+    "title": "Official Documentation"
+  },
+  "next.js-link": {
+    "title": "Next.js Docs ↗",
+    "href": "https://nextjs.org/docs",
+    "newWindow": true
+  }
+}

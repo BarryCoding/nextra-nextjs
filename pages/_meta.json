@@ -4,9 +4,17 @@
     "title": "Nextra",
     "display": "hidden"
   },
-  "next-page": {
+  "next-page-core": {
     "type": "page",
-    "title": "Next.js",
+    "title": "Next.js Core",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "next-page-more": {
+    "type": "page",
+    "title": "Next.js More",
     "display": "hidden",
     "theme": {
       "breadcrumb": false
@@ -20,13 +28,13 @@
     "title": "Next.js",
     "type": "menu",
     "items": {
-      "pages": {
-        "title": "Page Router",
-        "href": "/next-page/getting-started"
+      "pages-core": {
+        "title": "Page Router Core",
+        "href": "/next-page-core/getting-started"
       },
-      "pages-cn": {
-        "title": "Page 路由(待翻译)",
-        "href": "/next-page-cn"
+      "pages-more": {
+        "title": "Page Router More",
+        "href": "/next-page-more/api-reference"
       }
     }
   },

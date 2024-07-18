@@ -10,8 +10,7 @@
   "error-handling": "",
   "debugging": "",
   "draft-mode": {
-    "title": "Draft Mode",
-    "des": "superset of preview-mode"
+    "title": "Draft Mode"
   },
   "preview-mode": {
     "title": "ignored topics",

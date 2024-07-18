@@ -17,9 +17,6 @@
     "title": "ignored topics",
     "display": "hidden"
   },
-  "custom-server": {
-    "title": "ignored topics",
-    "display": "hidden"
-  },
+  "custom-server": "",
   "content-security-policy": ""
 }
